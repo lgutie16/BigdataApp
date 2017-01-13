@@ -1,0 +1,29 @@
+{
+  "development": {
+    "db":{    
+        "username": "root",    
+        "password": "root",
+        "database": "contestsApropia",
+        "host": "localhost",
+        "dialect": "mysql",      
+        "define": {
+            "timestamps": true,
+            "paranoid": true
+        }
+    }
+  },
+  "production": {
+    "db":{
+        "username": "beavertech",
+        "password": "ne3XcHqQr2KIne3XcHqQr2KI",
+        "database": "Hamptons",
+        "host": "hamptons.c4q9wug0fkfm.us-west-2.rds.amazonaws.com",
+        "dialect": "postgres",
+        "define": {
+            "timestamps": true,
+            "paranoid": true
+        },
+        "logging": true
+    }
+  }
+}
