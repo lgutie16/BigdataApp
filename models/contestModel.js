@@ -1,4 +1,4 @@
-    "use strict";
+   "use strict";
 
 var models  = require(__dirname);
 
@@ -9,13 +9,13 @@ var Contest = sequelize.define("Contest", {
     name: DataTypes.STRING,
     description:DataTypes.STRING,
     start:DataTypes.DATE,
-    end:DataTypes.DATE,    
+    end:DataTypes.DATE,
+    awards: DataTypes.TEXT,
     uuid : {type:DataTypes.UUID, defaultValue: DataTypes.UUIDV4}
 
 
 }, {
     classMethods: {
-
         associate: function(models) {
             Contest.hasMany(models.Step);
 

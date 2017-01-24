@@ -6,6 +6,7 @@ var routes = require('./routes/index');
 var users = require('./routes/user');
 var steps = require('./routes/step');
 var contests = require('./routes/contest');
+var criterions = require('./routes/criterion')
 var model = require('./models')
 
 var app = express();
@@ -23,7 +24,8 @@ app.use(cookieParser());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/contest', contests);
-app.use('/step', steps)
+app.use('/step', steps);
+app.use('/criterion', criterions);
 
 
 /// error handlers
