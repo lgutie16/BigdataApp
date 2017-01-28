@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes){
 	}, {
 		classMethods: {
 			createRecord: function(evaluation){            
-            return Evaluation.build(evaluation).save();
+            	return Evaluation.build(evaluation).save();
 	        },
 	        deleteRecord: function(evaluation){
 	            return Evaluation.destroy({
