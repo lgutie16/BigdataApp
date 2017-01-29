@@ -9,12 +9,13 @@ module.exports = function(sequelize, DataTypes) {
         start:DataTypes.DATE,
         end:DataTypes.DATE,    
         awards: DataTypes.TEXT,
+        criterions: DataTypes.TEXT,
+        InfoItems: DataTypes.TEXT,
         uuid : {type:DataTypes.UUID, defaultValue: DataTypes.UUIDV4}
     }, {
     classMethods: {
         associate: function(models) {
-            Step.hasMany(models.Criterion);
-            //Step.hasMany(models.Ideas);
+            Step.hasMany(models.Ideas);
         },
         getById: function(id) {
             return Step.findById(id);

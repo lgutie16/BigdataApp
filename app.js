@@ -4,10 +4,9 @@ var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var routes 			= require('./routes/index');
 var users 			= require('./routes/user');
+var ideas			= require('./routes/ideas')
 var steps 			= require('./routes/step');
 var contests 		= require('./routes/contest');
-var criterions 		= require('./routes/criterion');
-var evaluations 	= require('./routes/evaluation')
 var model 			= require('./models')
 
 
@@ -26,8 +25,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/contest', contests);
 app.use('/step', steps);
-app.use('/criterion', criterions);
-app.use('/evaluation', evaluations)
+app.use('/idea', ideas);
 
 
 

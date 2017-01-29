@@ -2,8 +2,6 @@
 
 var models  = require(__dirname);
 
-
-
 module.exports = function(sequelize, DataTypes) {
 var Contest = sequelize.define("Contest", {
     name: DataTypes.STRING,
@@ -22,7 +20,6 @@ var Contest = sequelize.define("Contest", {
     classMethods: {
         associate: function(models) {
             Contest.hasMany(models.Step);
-
         },
         getById: function(id) {
             return Contest.findById(id);
