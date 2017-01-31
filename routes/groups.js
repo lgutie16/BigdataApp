@@ -1,36 +1,38 @@
 module.exports 	= router;
 var express 	= require('express');
 var router 		= express.Router();
-var Contest 	= require('../models').Contest
+var Groups	 	= require('../models').Groups
 
 /* GET home page. */
 
 router.get('/', function(req, res) {
-	Contest.listRecords().then(function(result){
+	Groups.listRecords().then(function(result){
 		res.send(result)
 	})
 });
 
 router.propfind('/', function(req, res) {
-	Contest.getById(req.body.contest.id).then(function(result){
+	Groups.getById(req.body.group.id).then(function(result){
 		res.send(result)
 	})
 });
 
 router.post('/', function(req, res) {
-	Contest.createRecord(req.body.contest).then(function(result){
+	req.body.group.members = JSON.stringify(req.body.group.members);
+	Groups.createRecord(req.body.group).then(function(result){
 		res.send(result)
 	})
 });
 
 router.put('/', function(req, res){
-	Contest.updateRecord(req.body.contest).then(function(result){
+	req.body.group.members = JSON.stringify(req.body.group.members);
+	Groups.updateRecord(req.body.group).then(function(result){
 		res.send(result)
 	})
 });
 
 router.delete('/', function(req, res){
-	Contest.deleteRecord(req.body.contest).then(function(result){
+	Groups.deleteRecord(req.body.group).then(function(result){
 		res.send(result)
 	})
 });

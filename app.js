@@ -3,7 +3,8 @@ var logger 			= require('morgan');
 var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var routes 			= require('./routes/index');
-var users 			= require('./routes/user');
+var users 			= require('./routes/users');
+var groups			= require('./routes/groups')
 var ideas			= require('./routes/ideas')
 var steps 			= require('./routes/step');
 var contests 		= require('./routes/contest');
@@ -22,7 +23,8 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/user', users);
+app.use('/group', groups)
 app.use('/contest', contests);
 app.use('/step', steps);
 app.use('/idea', ideas);

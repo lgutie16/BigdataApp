@@ -13,9 +13,8 @@ var Contest = sequelize.define("Contest", {
     endInscriptions: DataTypes.DATE,
     awards: DataTypes.TEXT,
     inCharge: DataTypes.STRING,
+    registrationDataItems: DataTypes.TEXT,
     uuid : {type:DataTypes.UUID, defaultValue: DataTypes.UUIDV4}
-
-
 }, {
     classMethods: {
         associate: function(models) {
