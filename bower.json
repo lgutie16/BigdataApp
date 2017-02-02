@@ -1,0 +1,21 @@
+{
+  "name": "nodeapi",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "lgutie16 <lgutie16.eafit.edu.co>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lgutie16/sequelize-node",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-css": "^3.3.6"
+  }
+}

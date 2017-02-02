@@ -1,36 +1,36 @@
 module.exports 	= router;
 var express 	= require('express');
 var router 		= express.Router();
-var Users	 	= require('../models').Users
+var Teacher 	= require('../models').Teacher
 
 /* GET home page. */
 
 router.get('/', function(req, res) {
-	Users.listRecords().then(function(result){
+	Teacher.listRecords().then(function(result){
 		res.send(result)
 	})
 });
 
 router.propfind('/', function(req, res) {
-	Users.getById(req.body.user.id).then(function(result){
+	Teacher.getById(req.body.teacher.id).then(function(result){
 		res.send(result)
 	})
 });
 
 router.post('/', function(req, res) {
-	Users.createRecord(req.body.user).then(function(result){
+	Teacher.createRecord(req.body.teacher).then(function(result){
 		res.send(result)
 	})
 });
 
 router.put('/', function(req, res){
-	Users.updateRecord(req.body.user).then(function(result){
+	Teacher.updateRecord(req.body.teacher).then(function(result){
 		res.send(result)
 	})
 });
 
 router.delete('/', function(req, res){
-	Users.deleteRecord(req.body.user).then(function(result){
+	Teacher.deleteRecord(req.body.teacher).then(function(result){
 		res.send(result)
 	})
 });

@@ -1,36 +1,36 @@
 module.exports 	= router;
 var express 	= require('express');
 var router 		= express.Router();
-var Contest 	= require('../models').Contest
+var SchoolClass = require('../models').SchoolClass
 
 /* GET home page. */
 
 router.get('/', function(req, res) {
-	Contest.listRecords().then(function(result){
+	SchoolClass.listRecords().then(function(result){
 		res.send(result)
 	})
 });
 
 router.propfind('/', function(req, res) {
-	Contest.getById(req.body.contest.id).then(function(result){
+	SchoolClass.getById(req.body.schoolclass.id).then(function(result){
 		res.send(result)
 	})
 });
 
 router.post('/', function(req, res) {
-	Contest.createRecord(req.body.contest).then(function(result){
+	SchoolClass.createRecord(req.body.schoolclass).then(function(result){
 		res.send(result)
 	})
 });
 
 router.put('/', function(req, res){
-	Contest.updateRecord(req.body.contest).then(function(result){
+	SchoolClass.updateRecord(req.body.schoolclass).then(function(result){
 		res.send(result)
 	})
 });
 
 router.delete('/', function(req, res){
-	Contest.deleteRecord(req.body.contest).then(function(result){
+	SchoolClass.deleteRecord(req.body.schoolclass).then(function(result){
 		res.send(result)
 	})
 });
