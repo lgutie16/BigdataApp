@@ -15,7 +15,14 @@ A short description of the motivation behind the creation and maintenance of the
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+The installation of the project is really easy, making use of the package manager of node, npm.
+
+To install this project and make it run on your terminal, follow the next steps:
+
+1. Download the project folder or clone it using the following command: git clone https://github.com/lgutie16/P1Telematica.git
+
+
+2. Go to the downloaded folder al run the command: npm install
 
 ## API Reference
 
