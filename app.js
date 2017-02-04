@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname,"./app/dist")))
+app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
 
 app.use('/', routes);
 app.use('/student', students);

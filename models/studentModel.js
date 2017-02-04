@@ -34,8 +34,8 @@ var Students = sequelize.define("Students", {
         }
     },
     instanceMethods:{
-       addClass: function(){
-            Students.addClass(course, { SchoolClassId: { : '1' }})
+       addClass: function(course){
+            return Students.addClass(course, { SchoolClassId: { id: '1' }})
        }
     }
 

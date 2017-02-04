@@ -4,7 +4,10 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function(req, res) {
-  res.render("up up ");
+	data = { "nombre": {
+		"mio": "Linda"
+	}};
+    res.render('../app/views/', data);
 });
 
 module.exports = router;

@@ -7,6 +7,7 @@ var Course 	= require('../models').Course
 
 router.get('/', function(req, res) {
 	Course.listRecords().then(function(result){
+		result = JSON.stringify(result);
 		res.send(result)
 	})
 });
