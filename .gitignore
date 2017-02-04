@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Created by https://www.gitignore.io/api/node,bower
 
@@ -59,3 +60,9 @@ bower_components
 .bower-tmp
 
 # End of https://www.gitignore.io/api/node,bower
+=======
+node_modules/
+public/components
+.nyc_output
+.sass-cache
+>>>>>>> 390897ce08828f13654d0b8425c8c0a55d34315c

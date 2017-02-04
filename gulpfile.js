@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 var gulp = require('gulp');
+=======
+var gulp = require('gulp'),
+  nodemon = require('gulp-nodemon'),
+  plumber = require('gulp-plumber'),
+  livereload = require('gulp-livereload');
+
+
+>>>>>>> 390897ce08828f13654d0b8425c8c0a55d34315c
 gulp.task('develop', function () {
   livereload.listen();
   nodemon({
@@ -19,4 +28,7 @@ gulp.task('develop', function () {
 gulp.task('default', [
   'develop'
 ]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 390897ce08828f13654d0b8425c8c0a55d34315c
