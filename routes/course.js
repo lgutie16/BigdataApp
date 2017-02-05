@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 });
 
 router.propfind('/', function(req, res) {
-	Course.getById(req.body.course.id).then(function(result){
+	Course.getById(req.body.id).then(function(result){
 		res.send(result)
 	})
 });
@@ -25,13 +25,13 @@ router.post('/', function(req, res) {
 });
 
 router.put('/', function(req, res){
-	Course.updateRecord(req.body.course).then(function(result){
+	Course.updateRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });
 
 router.delete('/', function(req, res){
-	Course.deleteRecord(req.body.course).then(function(result){
+	Course.deleteRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });

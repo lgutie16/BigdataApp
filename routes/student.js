@@ -12,16 +12,14 @@ router.get('/', function(req, res) {
 });
 
 router.propfind('/', function(req, res) {
-	Students.getById(req.body.student.id).then(function(result){
+	Students.getById(req.body.id).then(function(result){
 		res.send(result)
 	})
 });
 
 router.post('/', function(req, res) {
-	student = {}
-	student.name = req.body.name
-	student.docNumber = req.body.docNumber
-	Students.createRecord(student).then(function(result){
+	
+	Students.createRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });
@@ -35,7 +33,7 @@ router.put('/', function(req, res){
 
 
 router.delete('/', function(req, res){
-	Students.deleteRecord(req.body.student).then(function(result){
+	Students.deleteRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });
