@@ -34,9 +34,9 @@ module.exports = lodash.extend({
     sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_CHARCOAL_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
-      port:     match[4],
-      host:     match[3],
-      logging:  false,
+     // port:     match[4],
+     // host:     match[3],
+     // logging:  false,
       dialectOptions: {
           ssl: true
       } 
