@@ -47,14 +47,12 @@
                             </td>
                             <td><%= courses[i].start %> <%= courses[i].start %></td> 
                             <td>
-                              <form  method="DELETE" action="/course" >
+                              <form  method="POST" action="/course" >
+                                <input type="hidden" name="_method" value="delete"/>
                                 <input id="course" name="course" type="hidden" value="<%= courses[i].uuid%>">
                                 <button class="btn btn-primary nextBtn pull-right" type="submit" >Drop</button>
                               </form>
-                              <form  method="PROPFIND" action="/course" >
-                                <input id="course" name="course" type="hidden" value="<%= courses[i].id%>">
-                                <button class="btn btn-primary nextBtn pull-right" type="submit" >Edit</button>
-                              </form>
+                              <a href="/course"> Go </a>
                             </td>                               
                           </tr>                            
                       <% } %>
