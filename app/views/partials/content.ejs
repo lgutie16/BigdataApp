@@ -39,7 +39,20 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
+                       <% for(var i=0; i<courses.length; i++) {%>
+                          <tr>
+                            <th scope="row"><%= courses[i].id %> </th>
+                            <td>                                 
+                                <%= courses[i].name %>                                  
+                            </td>
+                            <td><%= courses[i].start %> <%= courses[i].start %></td> 
+                            <td>
+                              <a href="">Editar</a> 
+                              <a href="">Eliminar</a> 
+                              <a class="btn btn-primary" href="" role="button">Adicionar Etapa</a>
+                            </td>                               
+                          </tr>                            
+                      <% } %>
                     </tbody>
                   </table>
                </p>
