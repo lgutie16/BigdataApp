@@ -20,7 +20,7 @@ router.propfind('/', function(req, res) {
 
 router.post('/', function(req, res) {
 	Course.createRecord(req.body).then(function(result){
-		res.render('../app/views/', result)
+		res.redirect('/')
 	})
 });
 
