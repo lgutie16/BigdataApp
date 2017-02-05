@@ -47,8 +47,11 @@
                             </td>
                             <td><%= courses[i].start %> <%= courses[i].start %></td> 
                             <td>
-                              <a href="">Editar</a> 
-                              <a href="">Eliminar</a> 
+                              <form  method="DELETE" action="/course" >
+                                <input id="course" name="course" type="hidden" value="<%= courses[i]%>"><button class="btn btn-primary nextBtn pull-right" type="submit" >Drop</button>
+                              </form>
+                              <a href="">Edit</a> 
+                              <a href="/">Drop</a> 
                               <a class="btn btn-primary" href="" role="button">Adicionar Etapa</a>
                             </td>                               
                           </tr>                            
@@ -102,7 +105,7 @@
             </div>
 
             <!-- Button -->
-            <button class="btn btn-primary nextBtn pull-right" type="submir" >Save New Course</button>
+            <button class="btn btn-primary nextBtn pull-right" type="submit" >Save New Course</button>
         </fieldset>
     </form>
 </div>
