@@ -41,7 +41,7 @@ app.use('/class', classes);
 
 
 
-app.listen(3002,function(){
+app.listen(process.env.PORT || 8888,function(){
     console.log("Escuchano por el puerto 3002")
     model.sequelize.sync().then(function(){
         console.log("sequelize")
