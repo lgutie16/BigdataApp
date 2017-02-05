@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
-app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 app.use('/', routes);
@@ -39,13 +39,13 @@ app.use('/class', classes);
 // development error handler
 // will print stacktrace
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
-  model.sequelize.sync().then(function(){
+
+
+app.listen(3002,function(){
+    console.log("Escuchano por el puerto 3002")
+    model.sequelize.sync().then(function(){
         console.log("sequelize")
-  })
-});
-
-
+    })
+})
 
 
