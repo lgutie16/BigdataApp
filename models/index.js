@@ -29,9 +29,9 @@ module.exports = lodash.extend({
   Sequelize: Sequelize
 }, db);
 */
- if (process.env.postgresql-crystalline-76824) {
+ if (process.env.HEROKU_POSTGRESQL_CHARCOAL_URL) {
     // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.postgresql-crystalline-76824, {
+    sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_CHARCOAL_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
       port:     match[4],
