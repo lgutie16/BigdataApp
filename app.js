@@ -34,21 +34,18 @@ app.use('/teacher', teachers);
 app.use('/course', courses);
 app.use('/class', classes);
 
-
-
 /// error handlers
 
 // development error handler
 // will print stacktrace
 
-
-
-app.listen(3002,function(){
-    console.log("Escuchano por el puerto 3002")
-    model.sequelize.sync().then(function(){
+app.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', http.address().port);
+  model.sequelize.sync().then(function(){
         console.log("sequelize")
-    })
+  })
+});
 
-})
+
 
 
