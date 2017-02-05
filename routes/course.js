@@ -8,7 +8,7 @@ var Course 	= require('../models').Course
 router.get('/', function(req, res) {
 	Course.listRecords().then(function(result){
 		result = JSON.stringify(result);
-		res.direct("/")
+		res.redirect("/")
 	})
 });
 
@@ -33,7 +33,7 @@ router.put('/', function(req, res){
 router.delete('/', function(req, res){
 	console.log(req.param)
 	Course.deleteRecord(req.param).then(function(result){
-		res.direct("/")
+		res.redirect("/")
 	})
 });
 
