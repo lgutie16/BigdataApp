@@ -31,6 +31,7 @@ var Course = sequelize.define("Course", {
             return Course.findAll();
         },
         deleteRecord: function(course){
+            console.log(course)
             return Course.destroy({
                   where:{
                     uuid:course.uuid
