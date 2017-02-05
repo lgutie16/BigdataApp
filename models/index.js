@@ -31,7 +31,7 @@ module.exports = lodash.extend({
 */
  if (process.env.postgresql-crystalline-76824) {
     // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+    sequelize = new Sequelize(process.env.postgresql-crystalline-76824, {
       dialect:  'postgres',
       protocol: 'postgres',
       port:     match[4],
@@ -51,6 +51,6 @@ module.exports = lodash.extend({
     Course:           sequelize.import(__dirname + '/courseModel'),
     SchoolClass:      sequelize.import(__dirname + '/classModel')
   }
-}
+
 
 module.exports = global.db
