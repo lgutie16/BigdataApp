@@ -1,7 +1,7 @@
 module.exports 	= router;
 var express 	= require('express');
 var router 		= express.Router();
-var Course 	= require('../models').Course
+var Course 		= require('../models').Course
 
 /* GET home page. */
 
@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 
 router.propfind('/', function(req, res) {
 	Course.getById(req.body.id).then(function(result){
-		res.send(result)
+		res.render("../app/views/editContest.ejs",result)
 	})
 });
 

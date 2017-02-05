@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<title>School Manager</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="styleshhet" href="/public/css/bootstrap.min.css"
+<!-- Steps -->
+</head>
+<body>
+    <%-include('partials/navbar') %>
+    <%-include('partials/options') %>
+    <div class="container"> 
+         <div class="col-md-4">  
+          <form class="form-horizontal" method="POST" action="/course" enctype="application/x-www-form-urlencoded">
+              <fieldset>
+                  <!-- Form Name -->
+                  <legend></legend>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="contest_name">Name</label>  
+                    <div class="col-md-8">
+                    <input id="name" name="name" type="text" placeholder="Write Course Name" class="form-control input-md" required="">           
+                    </div>
+                  </div>
+
+                  <!-- Textarea -->
+                   <div class="form-group">
+                    <label class="col-md-4 control-label">Description</label>
+                    <div class="col-md-8">
+                    <textarea class="form-control" id="description" name="description"></textarea>
+                    <span class="help-block">Course objetives, What kind of skills are going to be improved </span> 
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="contest_description">Start Date</label>
+                    <div class="col-md-8">                     
+                      <input id="start" name="start" type="date" placeholder="Doc Number" class="form-control input-md" required="">
+                      <span class="help-block">When does it start?</span> 
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="contest_description">End Date</label>
+                    <div class="col-md-8">                     
+                      <input id="end" name="end" type="date" placeholder="Doc Number" class="form-control input-md" required="">
+                      <span class="help-block">When does it finish?</span> 
+                    </div>
+                  </div>
+
+                  <!-- Button -->
+                  <button class="btn btn-primary nextBtn pull-right" type="submit" >Save New Course</button>
+              </fieldset>
+          </form>
+      </div>
+    <hr>           
+    </div>
+    <%- include('partials/footer') %> 
+    <!-- /container -->
+   
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+        src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>
