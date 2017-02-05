@@ -3,13 +3,15 @@ var logger 			= require('morgan');
 var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var path 			= require("path");
+var cool 			= require('cool-ascii-faces');
+var pg 				= require('pg');
 var routes 			= require('./routes/index');
 var students 		= require('./routes/student');
 var teachers 		= require('./routes/teacher');
 var courses 		= require('./routes/course');
 var classes 		= require('./routes/class');
 var model 			= require('./models')
-var cool 			= require('cool-ascii-faces');
+
 
 var app = express();
 
