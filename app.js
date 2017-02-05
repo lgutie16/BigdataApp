@@ -9,7 +9,7 @@ var teachers 		= require('./routes/teacher');
 var courses 		= require('./routes/course');
 var classes 		= require('./routes/class');
 var model 			= require('./models')
-var cool = require('cool-ascii-faces');
+var cool 			= require('cool-ascii-faces');
 
 var app = express();
 
