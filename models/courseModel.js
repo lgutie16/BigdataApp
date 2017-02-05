@@ -29,7 +29,14 @@ var Course = sequelize.define("Course", {
         },
         listRecords:function(){
             return Course.findAll();
-        }
+        },
+        deleteRecord: function(course){
+            return Course.destroy({
+                  where:{
+                    uuid:course.uuid
+                  }
+            });
+        },
     },
     instanceMethods:{
         available:function(newstart,newend){           
