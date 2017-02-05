@@ -46,9 +46,9 @@ module.exports = lodash.extend({
   global.db = {
     Sequelize: Sequelize,
     sequelize: sequelize,
-    Students:         sequelize.import(__dirname + '/studentModel') 
-    Teachers:         sequelize.import(__dirname + '/teacherModel')
-    Course:           sequelize.import(__dirname + '/courseModel')
+    Students:         sequelize.import(__dirname + '/studentModel'), 
+    Teachers:         sequelize.import(__dirname + '/teacherModel'),
+    Course:           sequelize.import(__dirname + '/courseModel'),
     SchoolClass:      sequelize.import(__dirname + '/classModel')
   }
 }
