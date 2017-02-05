@@ -31,10 +31,7 @@ router.put('/', function(req, res){
 });
 
 router.delete('/', function(req, res){
-	console.log(req.param)
-	console.log("NO lllego nada perra")
-	Course.deleteRecord(req.param).then(function(result){
-
+	Course.deleteRecord(req.body).then(function(result){
 		res.redirect("/")
 	})
 });
