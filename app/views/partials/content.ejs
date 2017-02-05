@@ -134,7 +134,7 @@
                               <td><%= students[i].phone %> </td> 
                               <td>
                                 <form  method="DELETE" action="/course" >
-                                  <input id="course" name="course" type="hidden" value="<%= courses[i]%>"><button class="btn btn-primary nextBtn pull-right" type="submit" >Drop</button>
+                                  <input id="course" name="course" type="hidden" value="<%= courses[i].uuid%>"><button class="btn btn-primary nextBtn pull-right" type="submit" >Drop</button>
                                 </form>
                               </td>                               
                             </tr>                            

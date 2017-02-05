@@ -31,7 +31,8 @@ router.put('/', function(req, res){
 });
 
 router.delete('/', function(req, res){
-	Course.deleteRecord(req.body).then(function(result){
+	console.log(req.params)
+	Course.deleteRecord(req.params).then(function(result){
 		res.direct("/")
 	})
 });
