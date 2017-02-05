@@ -1,10 +1,10 @@
 {
-  "name": "nodeapi",
+  "name": "Telematics Project",
   "version": "0.0.1",
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon app"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
