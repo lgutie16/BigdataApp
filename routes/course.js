@@ -19,7 +19,7 @@ router.propfind('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	Course.createRecord(req.body.course).then(function(result){
+	Course.createRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });
