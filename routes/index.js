@@ -11,9 +11,9 @@ router.get('/', function(req, res) {
 		data.courses = courses;
 		Teachers.listRecords().then(function(teachers){	
 			data.teachers = teachers;
-			Teachers.listRecords().then(function(students){	
+			Students.listRecords().then(function(students){	
 				data.students = students;	
-				 Teachers.listRecords().then(function(classes){	
+				 Classes.listRecords().then(function(classes){	
 				 	 data.classes = classes;			 
 					 //data = JSON.stringify(data);
 					 res.render('../app/views/', data);
