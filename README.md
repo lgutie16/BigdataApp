@@ -5,6 +5,10 @@ This project was developed to put in practice telematics knowledge.
 
 The funcionality of this little program is the posibility of manage school courses 
 
+Thi is the link of the project running in the *PAAS Heroku*
+
+[School Courses Manager running on Heroku](https://whispering-harbor-65730.herokuapp.com/ "Running")
+
 ## Code Example
 
 ```javascript
@@ -31,31 +35,39 @@ The installation of the project is really easy, making use of the package manage
 To install this project and make it run on your terminal, follow the next steps:
 
 1. Download the project folder or clone it using the following command: 
+
 git clone https://github.com/lgutie16/P1Telematica.git
 
-2. Go to the downloaded folder al run the command: npm 
+2. Go to the downloaded folder al run the command: 
+
+npm install
 
 Pay Attention: The above steps assumes that you already have *npm*, *node* and *github* install in your local envieronment.
 
 If it is not the case peaple visit the next links and procee with the installation:
 
-----[Install npm - package manager](https://docs.npmjs.com/cli/install "NPM installation")
+1. [Install npm - package manager](https://docs.npmjs.com/cli/install "NPM installation")
 
-----[Install node js ](https://nodejs.org/en/download/ "Node Installation")
+2. [Install node js ](https://nodejs.org/en/download/ "Node Installation")
 
-----[Install github](https://desktop.github.com/ "Github Installation")
+3. [Install github](https://desktop.github.com/ "Github Installation")
 
 ## API Reference
 
 The API to this project was developed using the next javascript technologies:
 
- 	[SEQUELIZE ORM](https://docs.npmjs.com/cli/install "Sequelize")
+ 	[SEQUELIZE ORM](http://docs.sequelizejs.com/en/v3/ "Sequelize")
 
- 	[EXPRESS JS framework](https://docs.npmjs.com/cli/install "Express")
+ 	[EXPRESS JS framework](http://expressjs.com/ "Express")
 
 ## Tests
 
 The tests and some functionalities of the system was perform using chrome app *POSTMAN* 
+
+
+![Postman envieronment](https://www.getpostman.com/img/v1/docs/source/2.png "Postman - To make tests and make interactions")
+
+
 
 
 ## License
