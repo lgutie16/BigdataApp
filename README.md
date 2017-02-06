@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-# sequelize-node
-Technologies
-FRONTEND REACT-REDUX
-BACKEND  EXPRESS-SEQUELIZE-SEQUELIZE-CLI
-
-Introducing SEQUELIZE-CLI to create new tables dependign on parameter recived from
-the frontend through a form.
-=======
 ## Synopsis
 
 This project was developed to put in practice telematics knowledge. 
@@ -30,7 +21,8 @@ module.exports = router;
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+This project is was created with the motivation of learn about how to integrate diferent development envieronments and to improve web development skills.
+
 
 ## Installation
 
@@ -38,18 +30,27 @@ The installation of the project is really easy, making use of the package manage
 
 To install this project and make it run on your terminal, follow the next steps:
 
-1. Download the project folder or clone it using the following command: git clone https://github.com/lgutie16/P1Telematica.git
+1. Download the project folder or clone it using the following command: 
+git clone https://github.com/lgutie16/P1Telematica.git
 
+2. Go to the downloaded folder al run the command: npm 
 
-2. Go to the downloaded folder al run the command: npm install
+Pay Attention: The above steps assumes that you already have *npm*, *node* and *github* install in your local envieronment.
 
+If it is not the case peaple visit the next links and procee with the installation:
+
+[Install npm - package manager](https://docs.npmjs.com/cli/install "NPM installation")
+[Install node js ](https://nodejs.org/en/download/ "Node Installation")
+[Install github](https://desktop.github.com/ "Github Installation")
 ## API Reference
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+The API to this project was developed using the next javascript technologies:
+ 	[SEQUELIZE ORM](https://docs.npmjs.com/cli/install "Sequelize")
+ 	[EXPRESS JS](https://docs.npmjs.com/cli/install "Express")
 
 ## Tests
 
-Describe and show how to run the tests with code examples.
+The tests and some functionalities of the system was perform using chrome app *POSTMAN* 
 
 ## Contributors
 
@@ -58,4 +59,4 @@ Let people know how they can dive into the project, include important links to t
 ## License
 
 A short snippet describing the license (MIT, Apache, etc.)
->>>>>>> 390897ce08828f13654d0b8425c8c0a55d34315c
+
