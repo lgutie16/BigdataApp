@@ -13,7 +13,8 @@
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
                     <ul class="list-group">
-                        <li class="list-group-item"><span class="badge"><%= courses.length;%></span> Classes</li>
+                        <li class="list-group-item"><span class="badge"><%= courses.length;%></span> Courses</li>
+                        <li class="list-group-item"><span class="badge"><%= classes.length;%></span> Classes</li>
                         <li class="list-group-item"><span class="badge"><%= teachers.length;%></span> Teachers</li>
                         <li class="list-group-item"><span class="badge"><%= students.length;%></span> Students</li>
                     </ul>
@@ -27,7 +28,7 @@
    <div class="col-md-6">
      <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <h2>Add new Course</h2>
+              <h2>Course List</h2>
               <p>
                   <table class="table">
                     <thead class="thead-default">
@@ -69,7 +70,7 @@
       <form class="form-horizontal" method="POST" action="/course" enctype="application/x-www-form-urlencoded">
           <fieldset>
               <!-- Form Name -->
-              <legend></legend>
+              <legend>New Course</legend>
 
               <!-- Text input-->
                 <div class="form-group">
@@ -115,7 +116,7 @@
      <div class="col-md-4">
        <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <h2></h2>
+                <h2>Registered Students</h2>
                 <p>
                     <table class="table">
                       <thead class="thead-default">
@@ -149,7 +150,7 @@
       <form class="form-horizontal" method="POST" action="/class" enctype="application/x-www-form-urlencoded">
                 <fieldset>
                     <!-- Form Name -->
-                    <legend></legend>
+                    <legend>Add Class</legend>
 
                     <!-- Text input-->
                       <div class="form-group">
@@ -187,7 +188,7 @@
   <div class="col-md-4">
        <div class="row">
               <div class="col-md-10 col-md-offset-1">                
-                <h2></h2>
+                <h2>Class List</h2>
                 <p>
                     <table class="table">
                       <thead class="thead-default">
