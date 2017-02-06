@@ -7,20 +7,19 @@ var Course 		= require('../models').Course
 
 router.get('/', function(req, res) {
 	Course.listRecords().then(function(result){
-		result = JSON.stringify(result);
-		res.redirect("/")
+		res.send(result)
 	})
 });
 
 router.propfind('/', function(req, res) {
 	Course.getById(req.body.id).then(function(result){
-		res.render("../app/views/editContest.ejs",result)
+		res.send(result)
 	})
 });
 
 router.post('/', function(req, res) {
 	Course.createRecord(req.body).then(function(result){
-		res.redirect('/')
+		res.send(result)
 	})
 });
 
@@ -32,7 +31,7 @@ router.put('/', function(req, res){
 
 router.delete('/', function(req, res){
 	Course.deleteRecord(req.body.course).then(function(result){
-		res.redirect('/')
+		res.send(result)
 	})
 });
 
