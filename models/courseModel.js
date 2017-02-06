@@ -34,7 +34,7 @@ var Course = sequelize.define("Course", {
             console.log(course)
             return Course.destroy({
                   where:{
-                    uuid:course.uuid
+                    uuid:course.id
                   }
             });
         },

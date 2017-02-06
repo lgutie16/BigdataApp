@@ -29,7 +29,8 @@ router.put('/', function(req, res){
 	})
 });
 
-router.delete('/:uuid', function(req, res){
+router.delete('/course/:id', function(req, res){
+	console.log(req.params)
 	Course.deleteRecord(req.params).then(function(result){
 		res.redirect('/')
 	})
