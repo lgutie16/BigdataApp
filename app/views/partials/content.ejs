@@ -27,29 +27,31 @@
    <div class="col-md-6">
      <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <h2></h2>
+              <h2>Add new Course</h2>
               <p>
                   <table class="table">
                     <thead class="thead-default">
                       <tr>
                         <th>#</th>
                         <th>Course Name</th>
-                        <th>Number of Classes</th>
-                        <th>Number of Students</th>
+                        <th>Details</th>
+                        <th>Options</th>
                       </tr>
                     </thead>
                     <tbody>
                        <% for(var i=0; i<courses.length; i++) {%>
                           <tr>
-                            <th scope="row"><%= courses[i].uuid %> </th>
+                            <th scope="row"><%= courses[i].id %> </th>
                             <td>                                 
                                 <%= courses[i].name %>                                  
                             </td>
-                            <td><%= courses[i].start %> <%= courses[i].start %></td> 
+                            <td>Start Date: <%= courses[i].start %> <br>
+                                 <%= courses[i].description %> 
+                            </td> 
                             <td>
                               <form  method="DELETE" action="/course" >
                                 <input id="course" name="course" type="hidden" value="<%= courses[i].uuid%>">
-                                <button class="btn btn-primary nextBtn pull-right" type="submit" >Drop</button>
+                                <button class="btn btn-primary nextBtn pull-right" type="submit" >Delete</button>
                               </form>
                             </td>                               
                           </tr>                            
@@ -110,7 +112,7 @@
 </div>
 
 <div class="row">
-     <div class="col-md-6">
+     <div class="col-md-4">
        <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <h2></h2>
@@ -119,9 +121,8 @@
                       <thead class="thead-default">
                         <tr>
                           <th>#</th>
-                          <th>Course Name</th>
-                          <th>Number of Classes</th>
-                          <th>Number of Students</th>
+                          <th>Name</th>
+                          <th>Phone</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -131,12 +132,124 @@
                               <td>                                 
                                   <%= students[i].name %>                                  
                               </td>
-                              <td><%= students[i].phone %> </td> 
-                              <td>
-                                <form  method="DELETE" action="/course" >
-                                  <input id="course" name="course" type="hidden" value="<%= courses[i].uuid%>"><button class="btn btn-primary nextBtn pull-right" type="submit" >Drop</button>
-                                </form>
-                              </td>                               
+                              <td><%= students[i].phone %> </td>                                                             
+                            </tr>                            
+                        <% } %>
+                      </tbody>
+                    </table>
+                 </p>
+                <p>
+                    <a class="btn btn-default" href="#" role="button">View details&raquo;</a>
+                </p>
+            </div>     
+       </div>  
+    </div>
+
+    <div class="col-md-4">  
+      <form class="form-horizontal" method="POST" action="/course" enctype="application/x-www-form-urlencoded">
+          <fieldset>
+              <!-- Form Name -->
+              <legend></legend>
+
+              <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="contest_name">Name</label>  
+                  <div class="col-md-8">
+                  <input id="name" name="name" type="text" placeholder="Write Course Name" class="form-control input-md" required="">           
+                </div>
+              </div>
+
+              <!-- Textarea -->
+               <div class="form-group">
+                <label class="col-md-4 control-label">Description</label>
+                <div class="col-md-8">
+                <textarea class="form-control" id="description" name="description"></textarea>
+                <span class="help-block">Course objetives, What kind of skills are going to be improved </span> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="contest_description">Start Date</label>
+                <div class="col-md-8">                     
+                  <input id="start" name="start" type="date" placeholder="Doc Number" class="form-control input-md" required="">
+                  <span class="help-block">When does it start?</span> 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="contest_description">End Date</label>
+                <div class="col-md-8">                     
+                  <input id="end" name="end" type="date" placeholder="Doc Number" class="form-control input-md" required="">
+                  <span class="help-block">When does it finish?</span> 
+                </div>
+              </div>
+
+              <!-- Button -->
+              <button class="btn btn-primary nextBtn pull-right" type="submit" >Save New Course</button>
+          </fieldset>
+      </form>
+  </div>
+  <div class="col-md-4">
+       <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <form class="form-horizontal" method="POST" action="/class" enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend></legend>
+
+                    <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="contest_name">Code</label>  
+                        <div class="col-md-8">
+                        <input id="code" name="code" type="text" placeholder="Write Course Name" class="form-control input-md" required="">           
+                      </div>
+                    </div>
+
+                    <!-- Textarea -->
+                     <div class="form-group">
+                      <label class="col-md-4 control-label">Description</label>
+                      <div class="col-md-8">
+                      <textarea class="form-control" id="description" name="description"></textarea>
+                      <span class="help-block">Class Metodology, Activities </span> 
+                      </div>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="contest_description">End Date</label>
+                      <div class="col-md-8">                     
+                        <select id="CourseId" name="CourseId" class="form-control input-md" required="">
+                          <% for(var i=0; i<courses.length; i++) {%>
+                          <option value="<%= courses[i].id %>"><%= courses[i].name %></option>
+                          <% } %>
+                        </select>
+                        <span class="help-block">This Class belong to what Course?</span> 
+                      </div>
+                    </div>
+
+                    <!-- Button -->
+                    <button class="btn btn-primary nextBtn pull-right" type="submit" >Save New Course</button>
+                </fieldset>
+            </form>
+                <h2></h2>
+                <p>
+                    <table class="table">
+                      <thead class="thead-default">
+                        <tr>
+                          <th>#</th>
+                          <th>Code</th>
+                          <th>Course</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                         <% for(var i=0; i<classes.length; i++) {%>
+                            <tr>
+                              <th scope="row"><%= classes[i].code %> </th>
+                              <td>                                 
+                                  <%= classes[i].description %>                                  
+                              </td>
+                              <td><%= classes[i].start %> </td>                                                             
                             </tr>                            
                         <% } %>
                       </tbody>
