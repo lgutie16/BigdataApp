@@ -30,23 +30,9 @@ router.put('/', function(req, res){
 });
 
 router.delete('/', function(req, res){
-	alert(req.params)
-	Course.deleteRecord(req.params).then(function(result){
+	Course.deleteRecord(req.body.course).then(function(result){
 		res.redirect('/')
 	})
 });
-
-/*
- // DELETE single owner
-  app.delete('/owner/:id', (req, res) => {
-    const id = req.params.id;
-    db.owners.destroy({
-      where: { id: id }
-    })
-      .then(deletedOwner => {
-        res.json(deletedOwner);
-      });
-  });
-*/
 
 module.exports = router;
