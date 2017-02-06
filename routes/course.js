@@ -32,7 +32,7 @@ router.put('/', function(req, res){
 
 router.delete('/', function(req, res){
 	Course.deleteRecord(req.body.course).then(function(result){
-		res.redirect("../app/views/editContest.ejs")
+		res.redirect('/')
 	})
 });
 
