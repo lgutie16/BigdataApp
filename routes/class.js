@@ -12,25 +12,25 @@ router.get('/', function(req, res) {
 });
 
 router.propfind('/', function(req, res) {
-	SchoolClass.getById(req.body.schoolclass.id).then(function(result){
+	SchoolClass.getById(req.body.id).then(function(result){
 		res.send(result)
 	})
 });
 
 router.post('/', function(req, res) {
-	SchoolClass.createRecord(req.body.schoolclass).then(function(result){
-		res.send(result)
+	SchoolClass.createRecord(req.body).then(function(result){
+		res.redirect('/')
 	})
 });
 
 router.put('/', function(req, res){
-	SchoolClass.updateRecord(req.body.schoolclass).then(function(result){
+	SchoolClass.updateRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });
 
 router.delete('/', function(req, res){
-	SchoolClass.deleteRecord(req.body.schoolclass).then(function(result){
+	SchoolClass.deleteRecord(req.body).then(function(result){
 		res.send(result)
 	})
 });
