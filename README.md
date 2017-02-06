@@ -39,22 +39,24 @@ Pay Attention: The above steps assumes that you already have *npm*, *node* and *
 
 If it is not the case peaple visit the next links and procee with the installation:
 
-[Install npm - package manager](https://docs.npmjs.com/cli/install "NPM installation")
-[Install node js ](https://nodejs.org/en/download/ "Node Installation")
-[Install github](https://desktop.github.com/ "Github Installation")
+----[Install npm - package manager](https://docs.npmjs.com/cli/install "NPM installation")
+
+----[Install node js ](https://nodejs.org/en/download/ "Node Installation")
+
+----[Install github](https://desktop.github.com/ "Github Installation")
+
 ## API Reference
 
 The API to this project was developed using the next javascript technologies:
+
  	[SEQUELIZE ORM](https://docs.npmjs.com/cli/install "Sequelize")
- 	[EXPRESS JS](https://docs.npmjs.com/cli/install "Express")
+
+ 	[EXPRESS JS framework](https://docs.npmjs.com/cli/install "Express")
 
 ## Tests
 
 The tests and some functionalities of the system was perform using chrome app *POSTMAN* 
 
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
 
 ## License
 
