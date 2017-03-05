@@ -19,7 +19,7 @@ router.propfind('/', function(req, res) {
 
 router.post('/', function(req, res) {
 	Course.createRecord(req.body).then(function(result){
-		res.send(result)
+		res.redirect('/dashboard');
 	})
 });
 
@@ -30,8 +30,9 @@ router.put('/', function(req, res){
 });
 
 router.delete('/', function(req, res){
-	Course.deleteRecord(req.body.course).then(function(result){
-		res.redirect('/')
+	console.log(req.body.uuid)
+	Course.deleteRecord(req.body.uuid).then(function(result){
+		res.redirect('/dashboard')
 	})
 });
 

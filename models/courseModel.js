@@ -30,11 +30,10 @@ var Course = sequelize.define("Course", {
         listRecords:function(){
             return Course.findAll();
         },
-        deleteRecord: function(course){
-            console.log(course)
+        deleteRecord: function(uuid){
             return Course.destroy({
                   where:{
-                    uuid:course.id
+                    uuid: uuid
                   }
             });
         },

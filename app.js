@@ -1,16 +1,18 @@
-var express 		= require('express');
-var logger 			= require('morgan');
+var express 		  = require('express');
+var logger 			  = require('morgan');
 var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
-var path 			= require("path");
-var cool 			= require('cool-ascii-faces');
-var pg 				= require('pg');
-var routes 			= require('./routes/index');
-var students 		= require('./routes/student');
-var teachers 		= require('./routes/teacher');
-var courses 		= require('./routes/course');
-var classes 		= require('./routes/class');
-var model 			= require('./models')
+var path 			    = require("path");
+var cool 			    = require('cool-ascii-faces');
+var pg 				    = require('pg');
+var methodOverride  = require('method-override')
+var login 			 = require('./routes/index');
+var dashboard    = require('./routes/dashboard')
+var students 		 = require('./routes/student');
+var teachers 		 = require('./routes/teacher');
+var courses 		 = require('./routes/course');
+var classes 		 = require('./routes/class');
+var model 			 = require('./models')
 
 
 var app = express();
@@ -25,10 +27,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
+app.use(methodOverride('_method'))
+
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
-app.use('/', routes);
+app.use('/', login);
+app.use('/dashboard', dashboard);
 app.use('/student', students);
 app.use('/teacher', teachers);
 app.use('/course', courses);

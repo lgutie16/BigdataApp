@@ -50,9 +50,9 @@
                                  <%= courses[i].description %> 
                             </td> 
                             <td>
-                              <form  method="DELETE" action="/course" >
-                                <input id="course" name="course" type="hidden" value="<%= courses[i].uuid%>">
-                                <button class="btn btn-primary nextBtn pull-right" type="submit" >Delete</button>
+                              <form method="POST" action="/course?_method=delete" enctype="application/x-www-form-urlencoded">
+                                <input id="uuid" name="uuid" type="hidden" value="<%= courses[i].uuid%>">
+                                <button class="btn btn-danger nextBtn pull-right" type="submit">Delete resource</button>
                               </form>
                             </td>                               
                           </tr>                            
