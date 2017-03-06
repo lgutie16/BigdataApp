@@ -12,13 +12,14 @@ var Course = sequelize.define("Course", {
 }, {
     classMethods: {
         associate: function(models) {
-            Course.hasMany(models.SchoolClass);
+            Course.hasMany(models.SchoolClass, {onDelete: 'cascade', as: 'Course'});
         },
         getById: function(id) {
             return Course.findById(id);
         },
-        createRecord: function(course){            
-            return Course.build(course).save();
+        createRecord: function(course){  
+            var classes = course.classes;          
+            return Course.build(course).save()
         },
         updateRecord:function(course){
              return Course.update(course,{

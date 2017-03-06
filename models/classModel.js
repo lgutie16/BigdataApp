@@ -12,13 +12,12 @@ var SchoolClass = sequelize.define("SchoolClass", {
 }, {
     classMethods: {
         associate: function(models) {
-            SchoolClass.hasMany(models.Students);
+            SchoolClass.belongsToMany(models.Students, {onDelete: 'cascade', through: 'StudentClasses',  foreignKey: 'studentId'});
         },
         getById: function(id) {
             return SchoolClass.findById(id);
         },
         createRecord: function(schoolclass){
-            
             return SchoolClass.build(schoolclass).save();
         },
         updateRecord:function(schoolclass){

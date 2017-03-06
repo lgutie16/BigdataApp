@@ -13,7 +13,7 @@ var Teachers = sequelize.define("Teachers", {
 }, {
     classMethods: {
         associate: function(models) {
-            Teachers.belongsToMany(models.SchoolClass, {through: 'TeacherClasses'});
+            Teachers.hasMany(models.SchoolClass);
         },
         getById: function(id) {
             return Teachers.findById(id);
@@ -26,7 +26,7 @@ var Teachers = sequelize.define("Teachers", {
                   where:{
                     uuid:Teachers.uuid
                   }
-                });
+              });
         },
         listRecords:function(){
             return Teachers.findAll();

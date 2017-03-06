@@ -13,7 +13,7 @@ var Students = sequelize.define("Students", {
 }, {
     classMethods: {
         associate: function(models) {
-            Students.belongsToMany(models.SchoolClass, {through: 'StudentClasses'});
+            Students.belongsToMany(models.SchoolClass, {onDelete: 'cascade', through: 'StudentClasses', foreignKey: 'classId'});
         },
         getById: function(id) {
             return Students.findById(id);

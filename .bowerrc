@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
   "directory": "app/lib",
-=======
-  "directory": "public/components",
->>>>>>> 390897ce08828f13654d0b8425c8c0a55d34315c
   "json": "bower.json"
 }
