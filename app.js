@@ -48,11 +48,9 @@ app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
+var authenticated = false;
+
 app.use('/', login);
-app.use('/dashboard', dashboard);
-app.use('/student', students);
-app.use('/teacher', teachers);
-app.use('/course', courses);
 app.use('/class', classes);
 
 //Login with active directory
@@ -65,6 +63,11 @@ app.post('/login',
       }
       if(auth){
         console.log("Authenticated");
+        app.use('/dashboard', dashboard);
+        app.use('/student', students);
+        app.use('/teacher', teachers);
+        app.use('/course', courses);
+        authenticated = true;
         res.redirect('/dashboard');
       }else{
         console.log("Authentication failed");
