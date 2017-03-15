@@ -14,6 +14,13 @@ var teachers 		 	= require('./routes/teacher');
 var courses 		 	= require('./routes/course');
 var classes 		 	= require('./routes/class');
 var model 			 	= require('./models')
+var ActiveDirectory = require('activedirectory');
+var config = {
+    url:             'ldap://10.131.137.180',
+    base:            'dc=DIS, dc=local',
+    bindDN:          'user1@DIS.local',
+    bindCredentials: 'eafit.2017'
+  }
 
 var redis  = require("redis"),
     client = redis.createClient();
@@ -48,6 +55,23 @@ app.use('/teacher', teachers);
 app.use('/course', courses);
 app.use('/class', classes);
 
+//Login with active directory
+app.post('/login',
+  function(req,res){
+    var ad = new ActiveDirectory(config);
+    ad.authenticate(req.body.username, req.body.password, function(err, auth){
+      if(err){
+        console.log("Error");
+      }
+      if(auth){
+        console.log("Authenticated");
+        res.redirect('/dashboard');
+      }else{
+        console.log("Authentication failed");
+      }
+    })
+  }
+);
 
 // now just use the cache
 client.on("error", function (err) {

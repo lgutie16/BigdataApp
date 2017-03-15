@@ -17,7 +17,7 @@
     <%-include('partials/options') %>
     <div class="container">    
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">     
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/login" method="post">
                 <fieldset>
 
                 <!-- Form Name -->
@@ -27,7 +27,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="textinput"></label>  
                   <div class="col-md-5">
-                  <input id="textinput" name="textinput" type="text" placeholder="User name" class="form-control input-md" required="">
+                  <input id="username" name="username" type="text" placeholder="User name" class="form-control input-md" required="">
                     
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="passwordinput"></label>
                   <div class="col-md-5">
-                    <input id="passwordinput" name="passwordinput" type="password" placeholder="Password" class="form-control input-md" required="">
+                    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
                     
                   </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="singlebutton"></label>
                   <div class="col-md-4">
-                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Login</button>
+                    <input type="submit" value="Log In" class="btn btn-primary"/>
                   </div>
                 </div>
 
