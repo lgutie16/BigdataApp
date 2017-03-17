@@ -21,6 +21,7 @@ var config = {
     bindDN:          'user1@DIS.local',
     bindCredentials: 'eafit.2017'
   }
+var session = require('express-session');
 
 var redis  = require("redis"),
     client = redis.createClient();
@@ -35,6 +36,13 @@ client.on("error", function (err) {
  
 
 var env = process.env.NODE_ENV || 'development';
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -53,10 +61,14 @@ var authenticated = false;
 app.use('/', login);
 app.use('/class', classes);
 
+
 //Login with active directory
 app.post('/login',
   function(req,res){
     var ad = new ActiveDirectory(config);
+    sess = req.session;
+    sess.username = req.body.username;
+    console.log(sess.username);
     ad.authenticate(req.body.username, req.body.password, function(err, auth){
       if(err){
         console.log("Error");
@@ -75,6 +87,17 @@ app.post('/login',
     })
   }
 );
+
+app.get('/logout',function(req,res){
+req.session.destroy(function(err) {
+  if(err) {
+    console.log(err);
+  } else {
+    res.redirect('/');
+  }
+});
+
+});
 
 // now just use the cache
 client.on("error", function (err) {
