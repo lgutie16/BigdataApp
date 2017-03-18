@@ -8,7 +8,7 @@ var pg 				    = require('pg');
 var methodOverride  	= require('method-override')
 var cache 				= require('memory-cache');
 var login 				= require('./routes/index');
-var dashboard    		= require('./routes/dashboard')
+var dashboard    	= require('./routes/dashboard')
 var students 		 	= require('./routes/student');
 var teachers 		 	= require('./routes/teacher');
 var courses 		 	= require('./routes/course');
@@ -44,6 +44,13 @@ app.use(session({
   cookie: { secure: true }
 }))
 
+function ensureAuthenticated(req, res, next) {
+  if (authenticated)
+    return next();
+  else
+    return res.redirect('/');
+}
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -60,6 +67,7 @@ var authenticated = false;
 
 app.use('/', login);
 app.use('/class', classes);
+app.use('/dashboard', ensureAuthenticated, dashboard);
 
 
 //Login with active directory
@@ -75,7 +83,7 @@ app.post('/login',
       }
       if(auth){
         console.log("Authenticated");
-        app.use('/dashboard', dashboard);
+      
         app.use('/student', students);
         app.use('/teacher', teachers);
         app.use('/course', courses);
@@ -93,6 +101,7 @@ req.session.destroy(function(err) {
   if(err) {
     console.log(err);
   } else {
+    authenticated = false;
     res.redirect('/');
   }
 });
