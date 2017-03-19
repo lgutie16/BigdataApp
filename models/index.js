@@ -64,7 +64,7 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var lodash    = require('lodash');
 var config    = require(__dirname + '/../config/database.json')[process.env.NODE_ENV];
-var sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config.db);
+var sequelize = new Sequelize("telematicap2", "root", "root");
 var db        = {};
 
 
