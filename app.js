@@ -3,7 +3,7 @@ var logger 			  = require('morgan');
 var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var path 			    = require("path");
-var cool 			    = require('cool-ascii-faces');
+var sql                 = require('mssql')
 var pg 				    = require('pg');
 var methodOverride  = require('method-override')
 var login 			 = require('./routes/index');
@@ -13,7 +13,7 @@ var teachers 		 = require('./routes/teacher');
 var courses 		 = require('./routes/course');
 var classes 		 = require('./routes/class');
 var model 			 = require('./models')
-
+var Client = require('mariasql');
 
 var app = express();
 
@@ -43,14 +43,31 @@ app.use('/class', classes);
 
 // development error handler
 // will print stacktrace
-
-
-
-app.listen(process.env.PORT || 8888,function(){
+app.listen(process.env.PORT || 3002,function(){
     console.log("Escuchano por el puerto 3002")
-    model.sequelize.sync().then(function(){
-        console.log("sequelize")
-    })
+
+
+var c = new Client({
+  host: '10.131.137.158',
+  user: 'usertelematica',
+  password: 'Wsx12cfT',
+  db: 'telematicap2',
+  port: 3306
+});
+
+c.query('SELECT * FROM users', function(err, rows) {
+  if (err)
+    throw err;
+  console.dir(rows);
+});
+
+c.end();
+
+//    model.sequelize.sync().then(function(){
+  //      console.log("sequelize")
+    //}).error(function(err) {
+    //	console.log("Error: OOOH NOOOES");
+   // });
 })
 
 

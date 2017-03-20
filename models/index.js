@@ -3,7 +3,7 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var lodash    = require('lodash');
 var config    = require(__dirname + '/../config/database.json')[process.env.NODE_ENV];
-var sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config.db);
+var sequelize = new Sequelize("telematicap2", "root", "");
 var db        = {};
 
 */
@@ -58,13 +58,13 @@ module.exports = lodash.extend({
 
 module.exports = global.db*/
 
-
+var mysql     = require("mysql");
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var lodash    = require('lodash');
 var config    = require(__dirname + '/../config/database.json')[process.env.NODE_ENV];
-var sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config.db);
+var sequelize = new Sequelize("telematicap2", "usertelematica", "Wsx12cfT", { host: '10.131.137.158:3306', dialect: 'mariadb'});
 var db        = {};
 
 
