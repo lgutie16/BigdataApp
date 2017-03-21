@@ -29,8 +29,10 @@ var Students = sequelize.define("Students", {
               }
             });
         },
-        listRecords:function(){
-            return Students.findAll();
+        listRecords:function(cb){
+            setTimeout(function () { // simulated I/O
+                cb(null, Students.findAll());
+            }, 100);
         }
     },
     instanceMethods:{

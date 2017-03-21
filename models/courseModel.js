@@ -28,8 +28,10 @@ var Course = sequelize.define("Course", {
                   }
                 });
         },
-        listRecords:function(){
-            return Course.findAll();
+        listRecords:function(cb){
+            setTimeout(function () { // simulated I/O
+                cb(null, Course.findAll());
+            }, 100);            
         },
         deleteRecord: function(uuid){
             return Course.destroy({
