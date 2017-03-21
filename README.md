@@ -9,6 +9,74 @@ Thi is the link of the project running in the *PAAS Heroku*
 
 [School Courses Manager running on Heroku](https://whispering-harbor-65730.herokuapp.com/ "Running")
 
+## A comentar para que corra sin bases de datos
+Sin la base de datos el dashboard no estará disponible.. asi que la uica vista que se verá es la de login.
+
+Los siguientes son los comentarios que se deben hacer sobre el código del archivo app.js
+
+```javascript
+
+var express 		  = require('express');
+var logger 			  = require('morgan');
+var cookieParser 	= require('cookie-parser');
+var bodyParser 		= require('body-parser');
+var path 			    = require("path");
+var cool 			    = require('cool-ascii-faces');
+var pg 				    = require('pg');
+var methodOverride  = require('method-override')
+var login 			 = require('./routes/index');
+
+//Empieza aquí
+//var dashboard    = require('./routes/dashboard')
+//var students 		 = require('./routes/student');
+//var teachers 		 = require('./routes/teacher');
+//var courses 		 = require('./routes/course');
+//var classes 		 = require('./routes/class');
+//var model 			 = require('./models')
+//Finaliza aquí
+
+var app = express();
+
+var env = process.env.NODE_ENV || 'development';
+
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(cookieParser());
+
+app.use(methodOverride('_method'))
+
+app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
+
+app.use('/', login);
+
+//Empieza aquí
+/*
+app.use('/dashboard', dashboard);
+app.use('/student', students);
+app.use('/teacher', teachers);
+app.use('/course', courses);
+app.use('/class', classes);
+*/
+//Finaliza aquí
+
+
+app.listen(process.env.PORT || 8888,function(){
+    console.log("Escuchano por el puerto 3002")
+    //Empieza aquí
+    /*model.sequelize.sync().then(function(){
+        console.log("sequelize")
+    })*/
+    //Finaliza aquí
+})
+
+```
+
+
 ## Code Example
 
 ```javascript
