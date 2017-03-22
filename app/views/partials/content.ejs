@@ -48,10 +48,10 @@
                             </td>
                             <td>Start Date: <%= courses[i].start %> <br>
                                  <%= courses[i].description %> 
-                                 <%= JSON.stringify(courses[i].SchoolClasses[0].code) %>
-                                 <% for(var j=0; j<courses[j].length; i++) {%>
-                                     <%= courses[i].SchoolClasses[j].code %>
-                                 <% } %>
+                                 <%= JSON.stringify(courses[i].SchoolClasses) %>
+                                
+                               
+                              
                             </td> 
                             <td>
                               <form method="POST" action="/course?_method=delete" enctype="application/x-www-form-urlencoded">

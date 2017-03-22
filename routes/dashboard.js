@@ -22,9 +22,9 @@ function getResponse(res){
         } else {
 			info.then(function(info){
 				data = {}        	
-	            data.requestTime = diff;	     
+	            		data.requestTime = diff;	     
 				data.courses = info		
-				console.dir(info)
+				//console.dir(info)
 				res.render('../app/views/', data);
 			})
 			

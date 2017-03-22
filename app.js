@@ -97,7 +97,7 @@ app.get('/logout',function(req,res){
 });
 
 
-app.listen(process.env.PORT || 3002,function(){
+app.listen(process.env.PORT || 3004,function(){
     console.log("Escuchano por el puerto 3002")
     model.sequelize.sync().then(function(){
        console.log("sequelize")
