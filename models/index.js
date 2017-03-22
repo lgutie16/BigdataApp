@@ -4,10 +4,9 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var lodash    = require('lodash');
 var config    = require(__dirname + '/../config/database.json')[process.env.NODE_ENV];
-var sequelize = new Sequelize("telematicap2", "root", "root");
+
+var sequelize = new Sequelize("telematicap2", "usertelematica", "Wsx12cfT", { host: '10.131.137.158', port: 3306, dialect: 'mariadb'});
 var db        = {};
-
-
 
 fs
   .readdirSync(__dirname) //scan all the files in the given folder (__direname = currently folder)
