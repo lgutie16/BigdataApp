@@ -13,10 +13,10 @@
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
                     <ul class="list-group">
+                        <li class="list-group-item"><span class="badge"><%= requestTime %></span> Response Time</li>
                         <li class="list-group-item"><span class="badge"><%= courses.length;%></span> Courses</li>
-                        <li class="list-group-item"><span class="badge"><%= classes.length;%></span> Classes</li>
-                        <li class="list-group-item"><span class="badge"><%= teachers.length;%></span> Teachers</li>
-                        <li class="list-group-item"><span class="badge"><%= students.length;%></span> Students</li>
+                       
+                        
                     </ul>
                 </div>
               </div>   
@@ -42,12 +42,16 @@
                     <tbody>
                        <% for(var i=0; i<courses.length; i++) {%>
                           <tr>
-                            <th scope="row"> <%= requestTime %> <%= courses[i].id %> </th>
+                            <th scope="row"> <%= courses[i].id %> </th>
                             <td>                                 
                                 <%= courses[i].name %>                                  
                             </td>
                             <td>Start Date: <%= courses[i].start %> <br>
                                  <%= courses[i].description %> 
+                                 <%= JSON.stringify(courses[i].SchoolClasses[0].code) %>
+                                 <% for(var j=0; j<courses[j].length; i++) {%>
+                                     <%= courses[i].SchoolClasses[j].code %>
+                                 <% } %>
                             </td> 
                             <td>
                               <form method="POST" action="/course?_method=delete" enctype="application/x-www-form-urlencoded">
@@ -115,67 +119,8 @@
 <br><br>
 <div class="row">
     <legend>Classes and Students</legend>
-     <div class="col-md-4">
-       <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                <legend>Registered Students</legend>
-                <p>
-                    <table class="table">
-                      <thead class="thead-default">
-                        <tr>
-                          <th>#</th>
-                          <th>Name</th>
-                          <th>Phone</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                         <% for(var i=0; i<students.length; i++) {%>
-                            <tr>
-                              <th scope="row"><%= students[i].docNumber %> </th>
-                              <td>                                 
-                                  <%= students[i].name %>                                  
-                              </td>
-                              <td><%= students[i].phone %> </td>                                                             
-                            </tr>                            
-                        <% } %>
-                      </tbody>
-                    </table>
-                 </p>
-                <p>
-                    <a class="btn btn-default" href="#" role="button">View details&raquo;</a>
-                </p>
-            </div>     
-       </div>  
-    </div>
-
-    <div class="col-md-4">  
-      <legend>Class List</legend>
-      <p>
-          <table class="table">
-            <thead class="thead-default">
-              <tr>
-                <th>#</th>
-                <th>Code</th>
-                <th>Course</th>
-              </tr>
-            </thead>
-            <tbody>
-               <% for(var i=0; i<classes.length; i++) {%>
-                  <tr>
-                    <th scope="row"><%= classes[i].code %> </th>
-                    <td><%= classes[i].description %></td>
-                    <td><%= classes[i].start %> </td>
-                    <td><%= classes[i].CourseId %> </td>                                                             
-                  </tr>                            
-              <% } %>
-            </tbody>
-          </table>
-       </p>
-      <p>
-          <a class="btn btn-default" href="#" role="button">View details&raquo;</a>
-      </p>
-    </div>
-    <div class="col-md-4">
+    
+    <div class="col-md-6">
         <form class="form-horizontal" method="POST" action="/class" enctype="application/x-www-form-urlencoded">
             <fieldset>
                 <!-- Form Name -->
@@ -214,9 +159,9 @@
                 <button class="btn btn-primary nextBtn pull-right" type="submit" >Save Class</button>
             </fieldset>
         </form>   
-    </div>
-
-    <div class="col-md-4">
+    
+    </div>    
+    <div class="col-md-6">
         <form class="form-horizontal" method="POST" action="/class" enctype="application/x-www-form-urlencoded">
             <fieldset>
                 <!-- Form Name -->
@@ -252,7 +197,7 @@
                   </div>
                 </div>
                 <!-- Button -->
-                <button class="btn btn-primary nextBtn pull-right" type="submit" >Save Class</button>
+                <button class="btn btn-primary nextBtn pull-right" type="submit" >Save Student</button>
             </fieldset>
         </form>   
     </div>

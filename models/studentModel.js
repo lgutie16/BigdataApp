@@ -18,9 +18,13 @@ var Students = sequelize.define("Students", {
         getById: function(id) {
             return Students.findById(id);
         },
-        createRecord: function(student){
-            
-            return Students.build(student).save();
+        createRecord: function(student){    
+
+            var classId = student.name   
+            console.log(classId)        
+            return Students.build(student).save().then(function(savedstudent){
+                savedstudent.addSchoolClass(classId)
+            });
         },
         updateRecord:function(student){
              return Students.update(student,{
@@ -29,10 +33,14 @@ var Students = sequelize.define("Students", {
               }
             });
         },
-        listRecords:function(cb){
-            setTimeout(function () { // simulated I/O
-                cb(null, Students.findAll());
-            }, 100);
+        listRecords:function(cb){  
+           setTimeout(function () { // simulated I/O
+                cb(null, Students.findAll({
+                  include: [
+                    {model: sequelize.model('SchoolClass')}
+                  ]
+                }));
+            }, 100);        
         }
     },
     instanceMethods:{

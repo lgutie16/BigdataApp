@@ -12,7 +12,7 @@ var Course = sequelize.define("Course", {
 }, {
     classMethods: {
         associate: function(models) {
-            Course.hasMany(models.SchoolClass, {onDelete: 'cascade', as: 'Course'});
+            Course.hasMany(models.SchoolClass, {onDelete: 'cascade'});
         },
         getById: function(id) {
             return Course.findById(id);
@@ -23,14 +23,22 @@ var Course = sequelize.define("Course", {
         },
         updateRecord:function(course){
              return Course.update(course,{
-                  where:{
-                    uuid:Course.uuid
-                  }
-                });
+              where:{
+                uuid:Course.uuid
+              }
+            });
         },
         listRecords:function(cb){
             setTimeout(function () { // simulated I/O
-                cb(null, Course.findAll());
+                cb(null, Course.findAll({
+                  include: [
+                    {model: sequelize.model('SchoolClass'),
+                        include: [
+                            {model: sequelize.model('Students')},                            
+                        ]
+                    }
+                  ]
+                }));
             }, 100);            
         },
         deleteRecord: function(uuid){

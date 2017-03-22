@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<title>School Manager</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="styleshhet" href="/public/css/bootstrap.min.css"
+<!-- Steps -->
+</head>
+<body>
+    <%-include('partials/navbar') %>
+    <%-include('partials/options') %>
+    <div class="row">      
+    <div class="col-md-4 col-md-offset-4">  
+        <form class="form-horizontal" method="POST" action="/Student" enctype="application/x-www-form-urlencoded">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>New Student</legend>
+
+                <!-- Text input-->
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for="contest_name">Name</label>  
+                      <div class="col-md-8">
+                      <input id="name" name="name" type="text" placeholder="Write Student Name" class="form-control input-md" required="">           
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for="contest_name">Card ID</label>  
+                      <div class="col-md-8">
+                      <input id="docNumber" name="docNumber" type="text" placeholder="Write Student Identification" class="form-control input-md" required="">           
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectmultiple"></label>
+                    <div class="col-md-5">
+                      <select id="classId" name="classId" class="form-control">
+                        <% for(var i=0; i<classes.length; i++) {%>
+                            <option value="<%= classes[i].id %>">
+                              <%= classes[i].code %> 
+                            </option>                           
+                        <% } %>
+                      </select>
+                    </div>
+                  </div>
+                <!-- Button -->
+                <button class="btn btn-primary nextBtn pull-right" type="submit" >Save Student</button>
+            </fieldset>
+        </form>
+    </div>
+    <hr> 
+           
+    </div>
+    <%- include('partials/footer') %> 
+    <!-- /container -->
+   
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+        src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+

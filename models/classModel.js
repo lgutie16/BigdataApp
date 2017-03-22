@@ -18,17 +18,24 @@ var SchoolClass = sequelize.define("SchoolClass", {
             return SchoolClass.findById(id);
         },
         createRecord: function(schoolclass){
-            return SchoolClass.build(schoolclass).save();
+            return SchoolClass.build(schoolclass);
         },
         updateRecord:function(schoolclass){
-             return SchoolClass.update(schoolclass,{
+                return SchoolClass.update(schoolclass,{
                   where:{
                     uuid:SchoolClass.uuid
                   }
                 });
         },
-        listRecords:function(){
-            return SchoolClass.findAll();
+        listRecords:function(cb){
+             setTimeout(function () { // simulated I/O
+                cb(null, SchoolClass.findAll({
+                  include: [
+                    {model: sequelize.model('Students') }
+                  ]
+                }));
+            }, 100);
+            
         }
     },
     instanceMethods:{

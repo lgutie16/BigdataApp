@@ -1,10 +1,10 @@
-var express 		        = require('express');
-var logger 			        = require('morgan');
-var cookieParser 	      = require('cookie-parser');
-var bodyParser 		      = require('body-parser');
-var path 			          = require("path");
-var sql                 = require('mssql')
-var pg 				          = require('pg');
+var express 		       	 = require('express');
+var logger 			       	 = require('morgan');
+var cookieParser 	     	 = require('cookie-parser');
+var bodyParser 		     	 = require('body-parser');
+var path 			         = require("path");
+var sql                 	 = require('mssql')
+var pg 				         = require('pg');
 var methodOverride      = require('method-override')
 var compression         = require("compression");
 var parallel            = require('middleware-flow').parallel;
@@ -16,7 +16,7 @@ var students            = require('./routes/student');
 var teachers            = require('./routes/teacher');
 var courses             = require('./routes/course');
 var classes             = require('./routes/class'); 
-var model 			        = require('./models')
+var model 			    = require('./models')
 var app                 = express();
 
 var env = process.env.NODE_ENV || 'development';
@@ -25,16 +25,6 @@ app.use(parallel(logger('dev'), bodyParser.json(), cookieParser(), bodyParser.ur
   extended: true
 }), compression(), helmet(), methodOverride('_method'), express.static(__dirname + '/public')));
 
-/*app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(cookieParser());
-app.use(compression());
-app.use(helmet());  
-app.use(methodOverride('_method'))
-app.use(express.static(__dirname + '/public'));*/
 app.set('view engine', 'ejs');
 
 app.use('/', login);
@@ -43,6 +33,7 @@ app.use('/student', students);
 app.use('/teacher', teachers);
 app.use('/course', courses);
 app.use('/class', classes);
+
 
 
 app.listen(process.env.PORT || 3002,function(){
