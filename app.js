@@ -30,6 +30,10 @@ var app 	= express();
 var env = process.env.NODE_ENV || 'development';
 
 app.use(parallel(logger('dev'), bodyParser.json(), cookieParser(), bodyParser.urlencoded({
+  extended: true
+}), compression(), helmet(), methodOverride('_method'), express.static(__dirname + '/public')));
+
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
@@ -44,11 +48,6 @@ function ensureAuthenticated(req, res, next) {
     return res.redirect('/');
 }
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}), compression(), helmet(), methodOverride('_method'), express.static(__dirname + '/public')));
 
 app.set('view engine', 'ejs');
 
