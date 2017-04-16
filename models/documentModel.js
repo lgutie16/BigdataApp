@@ -25,14 +25,13 @@ var Document = sequelize.define("Document", {
               }
             });
         },
-        listRecords:function(cb){
-            setTimeout(function () { // simulated I/O
-                cb(null, Document.findAll({
-                  include: [
-                    {model: sequelize.model('Students')}
-                  ]
-                }));
-            }, 100);
+        listRecords:function(name){
+           Document.findAll({
+              where: { name: name},
+              include: [
+                {model: sequelize.model('Word')}
+              ]
+            });
             
         }
     }
