@@ -23,9 +23,9 @@ app.use(parallel(logger('dev'), bodyParser.json(), cookieParser(), bodyParser.ur
 app.set('view engine', 'ejs');
 
 app.use('/', index)
-app.use('document', documents)
+app.use('/document', documents) 
 
-app.listen(process.env.PORT || 3001,function(){
+app.listen(process.env.PORT || 3002,function(){
     console.log("Escuchano por el puerto 3002")
     model.sequelize.sync().then(function(){
        console.log("sequelize")

@@ -27,7 +27,7 @@ var Document = sequelize.define("Document", {
         },
         listRecords:function(name){
            Document.findAll({
-              where: { name: name},
+              where: { name: name.name},
               include: [
                 {model: sequelize.model('Word')}
               ]
