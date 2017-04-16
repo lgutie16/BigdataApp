@@ -13,23 +13,29 @@
 <!-- Steps -->
 </head>
 <body>
-    <%-include('partials/navbar') %>
-    <%-include('partials/options') %>
     <div class="container">    
-     <%-include('partials/content') %>   
-    <hr> 
-           
+      <div class="col-md-12">  
+          <form class="form-horizontal" method="POST" action="/course" enctype="application/x-www-form-urlencoded">
+              <fieldset>
+                  <legend>What are you looking for?</legend>
+                    <div class="form-group">
+                        <div class="col-md-9">
+                          <input id="name" name="name" type="text" placeholder="Write a key Word" class="form-control input-md" required="">
+                        </div>
+                        <div class="col-md-2 col-md-offset-1">
+                            <button class="btn btn-primary nextBtn pull-right" type="submit" >Search</button>
+                        </diV>
+                  </div>
+                  
+              </fieldset>
+          </form>
+      </div>
+      <div class="col-md-12">  
+          <legend></legend>
+      </div>
     </div>
-    <%- include('partials/footer') %> 
-    <!-- /container -->
-   
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script
-        src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </body>
 </html>

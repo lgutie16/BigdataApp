@@ -5,7 +5,7 @@ var Sequelize = require('sequelize');
 var lodash    = require('lodash');
 var config    = require(__dirname + '/../config/database.json')[process.env.NODE_ENV];
 
-var sequelize = new Sequelize("telematicap2", "usertelematica", "Wsx12cfT", { host: '10.131.137.158', port: 3306, dialect: 'mariadb'});
+var sequelize = new Sequelize("telematicap3", "root", "root");
 var db        = {};
 
 fs

@@ -6,7 +6,7 @@ var Teachers	= require('../models').Teachers
 var mcache  = require('memory-cache');
 
 router.get('/', function(req, res) {			 
-	res.render('../app/views/login', {});	  
+	res.render('../app/views/', {});	  
 });
 
 module.exports = router;
