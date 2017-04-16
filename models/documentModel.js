@@ -12,27 +12,33 @@ var Document = sequelize.define("Document", {
         associate: function(models) {
             Document.belongsToMany(models.Word, {onDelete: 'cascade', through: 'W_D'});
         },
-        getById: function(id) {
-            return Document.findById(id);
+        getById: function(doc) {
+            return Document.findById(doc.id);
         },
-        createRecord: function(schoolclass){
-            return Document.build(schoolclass);
+        createRecord: function(doc){
+            return Document.build(doc);
         },
-        updateRecord:function(schoolclass){
+        updateRecord:function(doc){
             return Document.update(schoolclass,{
               where:{
-                uuid:Document.uuid
+                uuid:doc.uuid
               }
             });
         },
-        listRecords:function(name){
+        listRecords:function(doc){
            Document.findAll({
-              where: { name: name.name},
+              where: { name: doc.name},
               include: [
                 {model: sequelize.model('Word')}
               ]
-            });
-            
+            });            
+        },
+        deleteRecord: function(doc){
+            return Document.destroy({
+                  where:{
+                    uuid: doc.uuid
+                  }
+            })
         }
     }
     
