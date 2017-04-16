@@ -3,15 +3,21 @@ var router  	= express.Router();
 var Document 	= require('../models').Document
 
 router.post('/', function(req, res) {
-	Document.createRecord(req.body) 
+	Document.createRecord(req.body).then((result)=>{
+		res.send(result)
+	})
 });
 
 router.post('/find', function(req, res) {
-	Document.listRecords(req.body) 
+	Document.listRecords(req.body).then((result)=>{
+		res.send(result)
+	})
 });
 
 router.put('/', function(req, res) {
-	Document.updateRecord(req.body) 
+	Document.updateRecord(req.body).then((result)=>{
+		res.send(result)
+	}) 
 });
 
 router.delete('/', function(req, res) {

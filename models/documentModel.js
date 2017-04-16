@@ -16,7 +16,10 @@ var Document = sequelize.define("Document", {
             return Document.findById(doc.id);
         },
         createRecord: function(doc){
-            return Document.build(doc);
+            var WordId = doc.wordId      
+            return Document.build(doc).save().then(function(saveddoc){
+                saveddoc.addWord(WordId)
+            });
         },
         updateRecord:function(doc){
             return Document.update(schoolclass,{
@@ -26,7 +29,7 @@ var Document = sequelize.define("Document", {
             });
         },
         listRecords:function(doc){
-           Document.findAll({
+           return Document.findAll({
               where: { name: doc.name},
               include: [
                 {model: sequelize.model('Word')}

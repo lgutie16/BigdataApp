@@ -16,10 +16,9 @@ var Word = sequelize.define("Word", {
             return Word.findById(id);
         },
         createRecord: function(word){
-            var classId = student.name   
-            console.log(classId)        
-            return Word.build(student).save().then(function(savedstudent){
-                savedstudent.addSchoolClass(classId)
+            var DocumentId = word.docId      
+            return Word.build(word).save().then(function(savedWord){
+                savedWord.addDocument(DocumentId)
             });
         },
         updateRecord:function(word){
@@ -30,8 +29,15 @@ var Word = sequelize.define("Word", {
             });
         },
         listRecords:function(word){  
-            Word.findAll({
+            return Word.findAll({
               where: { name: word.name},
+              include: [
+                {model: sequelize.model('Document')}
+              ]
+            });        
+        },
+        listTotalRecords:function(){  
+            return Word.findAll({             
               include: [
                 {model: sequelize.model('Document')}
               ]
@@ -39,9 +45,9 @@ var Word = sequelize.define("Word", {
         },
         deleteRecord: function(word){
             return Word.destroy({
-                  where:{
-                    uuid: word.uuid
-                  }
+              where:{
+                uuid: word.uuid
+              }
             })
         }
     }

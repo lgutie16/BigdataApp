@@ -25,13 +25,32 @@
                         <div class="col-md-2 col-md-offset-1">
                             <button class="btn btn-primary nextBtn pull-right" type="submit" >Search</button>
                         </diV>
-                  </div>
-                  
+                  </div>                  
               </fieldset>
           </form>
       </div>
       <div class="col-md-12">  
           <legend></legend>
+          <table class="table">
+            <thead class="thead-default">
+              <tr>
+                <th>#</th>
+                <th>Doc Name</th>
+                <th>Word Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+               <% 
+                for(var i=0; i<result.length; i++) {
+                  for(var j=0; j<result[i].Documents.length; j++) {%>
+                <tr>
+                  <th scope="row"><%= result[i].Documents[j].code %></th>
+                  <td><%= result[i].Documents[j].name %></td>
+                  <td><%= result[i].Documents[j].name %></td>                         
+                </tr>                            
+              <% }} %>
+            </tbody>
+          </table>
       </div>
     </div>
   
