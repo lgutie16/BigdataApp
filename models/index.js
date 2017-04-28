@@ -5,7 +5,7 @@ var Sequelize = require('sequelize');
 var lodash    = require('lodash');
 var config    = require(__dirname + '/../config/database.json')[process.env.NODE_ENV];
 
-var sequelize = new Sequelize("st0263", "root", "root");
+var sequelize = new Sequelize("st0263", "st0263", "st0263.2017", { host: '10.131.137.188', port: 3306});
 var db        = {};
 
 fs
