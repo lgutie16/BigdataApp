@@ -30,25 +30,25 @@
           </form>
       </div>
       <div class="col-md-12">  
-          <legend></legend>
+          <legend>
+            <%  if(result.length>0) {%>WORD: <%=result[0].word %><% } else {%>Nothing was found<% }%>
+          </legend>
           <table class="table">
             <thead class="thead-default">
               <tr>
-                <th>#</th>
+                <th>#id</th>
                 <th>Doc Name</th>
                 <th>Word Frequency</th>
               </tr>
             </thead>
             <tbody>
-               <% 
-                for(var i=0; i<result.length; i++) {
-                  for(var j=0; j<result[i].Documents.length; j++) {%>
+               <% for(var i=0; i<result.length; i++) { %>
                 <tr>
-                  <th scope="row"><%= result[i].Documents[j].code %></th>
-                  <td><%= result[i].Documents[j].name %></td>
-                  <td><%= result[i].Documents[j].name %></td>                         
+                  <td><%= result[i].id %></td> 
+                  <th scope="row"><%= result[i].doc %></th>
+                  <td><%= result[i].count %></td>                       
                 </tr>                            
-              <% }} %>
+              <% } %>
             </tbody>
           </table>
       </div>

@@ -3,55 +3,44 @@
 var models  = require(__dirname);
 
 module.exports = function(sequelize, DataTypes) {
-var Word = sequelize.define("Word", {
-    code: DataTypes.STRING,
-    name: DataTypes.STRING,
+
+var Lgutie16 = sequelize.define("Lgutie16", {
+    word: DataTypes.STRING,
+    doc: DataTypes.STRING,
+    count: DataTypes.INTEGER,
     uuid : {type:DataTypes.UUID, defaultValue: DataTypes.UUIDV4}
 }, {
     classMethods: {
-        associate: function(models) {
-            Word.belongsToMany(models.Document, {onDelete: 'cascade', through: 'W_D'});
-        },
         getById: function(id) {
-            return Word.findById(id);
+            return Lgutie16.findById(id);
         },
-        createRecord: function(word){
-            var DocumentId = word.docId      
-            return Word.build(word).save().then(function(savedWord){
-                savedWord.addDocument(DocumentId)
-            });
+        createRecord: function(record){
+            return Lgutie16.build(record).save()
         },
-        updateRecord:function(word){
-             return Word.update(student,{
+        updateRecord:function(record){
+             return Lgutie16.update(record,{
               where:{
-                uuid: word.uuid
+                uuid: record.uuid
               }
             });
         },
-        listRecords:function(word){  
-            return Word.findAll({
-              where: { name: word.name},
-              include: [
-                {model: sequelize.model('Document')}
-              ]
+        listRecords:function(record){  
+            return Lgutie16.findAll({
+              where: { word: record.name}
             });        
         },
         listTotalRecords:function(){  
-            return Word.findAll({             
-              include: [
-                {model: sequelize.model('Document')}
-              ]
-            });        
+            return Lgutie16.findAll();        
         },
-        deleteRecord: function(word){
-            return Word.destroy({
+        deleteRecord: function(record){
+            return Lgutie16.destroy({
               where:{
-                uuid: word.uuid
+                uuid: record.uuid
               }
             })
         }
     }
 });
 
-return Word;
+return Lgutie16;
 };

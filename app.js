@@ -11,7 +11,6 @@ var helmet         = require("helmet");
 var Client         = require('mariasql');
 
 var index = require('./routes/index');
-var documents = require('./routes/document');
 var words = require('./routes/word');
 var model = require('./models')
 
@@ -24,7 +23,6 @@ app.use(parallel(logger('dev'), bodyParser.json(), cookieParser(), bodyParser.ur
 app.set('view engine', 'ejs');
 
 app.use('/', index)
-app.use('/document', documents)
 app.use('/word', words) 
 
 app.listen(process.env.PORT || 3002,function(){
