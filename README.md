@@ -55,54 +55,65 @@ Follow the next instructions to run this project localy
 ## About _processAndTransformFiles_ 
 In the folder _processAndTransformFiles_ there is two files which help us to deal with the processing and transformation of the data contained in Gutenberg HDFS directory.
 ### MapReduce
-	```python
-	# -*- coding: utf-8 -*-
+```python
 
-	from mrjob.job import MRJob
-	from mrjob.compat import jobconf_from_env
-	import unicodedata
-	import re
+# -*- coding: utf-8 -*-
 
-	class MRWordFrequencyCount(MRJob):
-	    def mapper(self, _, line):
+from mrjob.job import MRJob
+from mrjob.compat import jobconf_from_env
+import unicodedata
+import re
 
-	      data = u = unicode(line, "utf-8")
-	      normal = unicodedata.normalize('NFKD', data).encode('ASCII', 'ignore')
-	      new_line = re.sub('\W+',' ', normal.lower())
+class MRWordFrequencyCount(MRJob):
+    def mapper(self, _, line):
 
-	      filename = jobconf_from_env('mapreduce.map.input.file')
-	    
-	      for w in new_line.decode('utf-8','ignore').split():
-	        yield (w, filename), 1
+      data = u = unicode(line, "utf-8")
+      normal = unicodedata.normalize('NFKD', data).encode('ASCII', 'ignore')
+      new_line = re.sub('\W+',' ', normal.lower())
 
-	    def reducer(self, w, values):
-	      yield w, sum(values)
+      filename = jobconf_from_env('mapreduce.map.input.file')
+    
+      for w in new_line.decode('utf-8','ignore').split():
+        yield (w, filename), 1
 
-	if __name__ == '__main__':
-	    MRWordFrequencyCount.run()
+    def reducer(self, w, values):
+      yield w, sum(values)
 
-	``` 
+if __name__ == '__main__':
+    MRWordFrequencyCount.run()
+
+``` 
 
 ### Format Text produced by MapReduce process
-	```python
-	#!/usr/bin/python
-	# -*- coding: utf-8 -*-
-	import unicodedata, re
-	import sys
+```python
 
-	infile = open(str(sys.argv[1]), 'r')
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import unicodedata, re
+import sys
 
-	for line in infile:
-		new_line = ''.join([i for i in line if not i=='"'])[:-1]
-		new_line = new_line.translate(None, '!@#$[]')
-		new_line = new_line.replace('/datasets/download/gutenberg','')
-		new_line = re.sub(r'(.txt)', r'\1,', new_line)
-		new_line = ',' + new_line
-		print new_line
+infile = open(str(sys.argv[1]), 'r')
 
-	infile.close()
+for line in infile:
+	new_line = ''.join([i for i in line if not i=='"'])[:-1]
+	new_line = new_line.translate(None, '!@#$[]')
+	new_line = new_line.replace('/datasets/download/gutenberg','')
+	new_line = re.sub(r'(.txt)', r'\1,', new_line)
+	new_line = ',' + new_line
+	print new_line
 
-	``` 
+infile.close()
+
+``` 
+
+## How to run MySQL test manually
+
+```
+$mysql --local-infile=1 -u username -p
+>LOAD DATA LOCAL INFILE 'filedirectory/filename.ext' INTO TABLE Lgutie16s FIELDS TERMINATED BY ',';
+
+```
+
 
 ## License
 
