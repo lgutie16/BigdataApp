@@ -55,7 +55,7 @@ Follow the next instructions to run this project localy
 ## About _processAndTransformFiles_ 
 In the folder _processAndTransformFiles_ there is two files which help us to deal with the processing and transformation of the data contained in Gutenberg HDFS directory.
 ### MapReduce
-	``` python
+	```python
 	# -*- coding: utf-8 -*-
 
 	from mrjob.job import MRJob
@@ -84,7 +84,7 @@ In the folder _processAndTransformFiles_ there is two files which help us to dea
 	``` 
 
 ### Format Text produced by MapReduce process
-	``` python
+	```python
 	#!/usr/bin/python
 	# -*- coding: utf-8 -*-
 	import unicodedata, re
