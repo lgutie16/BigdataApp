@@ -119,33 +119,31 @@ infile.close()
 
 Map/reduce with inverted index:
 
-...
 
+```
 python mapreduce-clean.py [directory]/mapreduce-clean.py hdfs:///datasets/gutenberg/es/*.txt -r hadoop --output-dir hdfs:///user/username/out/out1
 
 python mapreduce-clean.py [directory]/mapreduce-clean.py hdfs:///datasets/gutenberg/en/*.txt -r hadoop --output-dir hdfs:///user/username/out/out2
-
-...
+```
 
 Now that we have the result of the map/reduce in hadoop we copy them to local
 
-...
-
+```
 hadoop fs -get /user/username/out/out1/part-00000 es-dataset
 
 hadoop fs -get /user/username/out/out1/part-00000 en-dataset
 
-...
+```
 
 After that we have to apply the format to insert the data into the database
 
-...
 
+```
 python format-convertion.py es-dataset > mysql1.txt
 
 python format-convertion.py en-dataset > mysql2.txt
 
-...
+```
 
 ## How to insert data into MySQL
 
