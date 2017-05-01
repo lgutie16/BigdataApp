@@ -26,7 +26,8 @@ var Lgutie16 = sequelize.define("Lgutie16", {
         },
         listRecords:function(record){  
             return Lgutie16.findAll({
-              where: { word: record.name}
+              where: { word: record.name},
+              order: [['count', 'DESC']]
             });        
         },
         listTotalRecords:function(){  
